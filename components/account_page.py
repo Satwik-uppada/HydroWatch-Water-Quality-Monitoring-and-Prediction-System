@@ -17,7 +17,7 @@ login_lottie_file = lottie_files("lottiefiles/login.json")
 
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate('water-quality-prediction-65f06-5ef45442b704.json')
+    cred = credentials.Certificate("PASTE_YOUR_FIREBASE_JSON_FILE_PATH_HERE")
     firebase_admin.initialize_app(cred)
 
 if 'username' not in st.session_state:
