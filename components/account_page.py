@@ -40,7 +40,8 @@ def app():
             if username:
                 payload["displayName"] = username 
             payload = json.dumps(payload)
-            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
+            # -----> make sure you insert your firebase passkey here 
+            r = requests.post(rest_api_url, params={"key": "Your pass key here"}, data=payload)
             try:
                 return r.json()['email']
             except:
@@ -69,8 +70,8 @@ def app():
                 
            
             payload = json.dumps(payload)
-            
-            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
+            # -----> make sure you insert your firebase passkey here 
+            r = requests.post(rest_api_url, params={"key": "Your passkey here"}, data=payload)
             
             data = r.json()
             user_info = {
@@ -90,7 +91,8 @@ def app():
                 "requestType": "PASSWORD_RESET"
             }
             payload = json.dumps(payload)
-            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
+            # -----> make sure you insert your firebase passkey here 
+            r = requests.post(rest_api_url, params={"key": "your pass key here"}, data=payload)
             if r.status_code == 200:
                 return True, "Reset email Sent"
             else:

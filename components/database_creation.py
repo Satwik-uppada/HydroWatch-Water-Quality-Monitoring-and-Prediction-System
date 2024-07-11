@@ -7,12 +7,13 @@ from datetime import datetime
 
     
 # Function to connect to MySQL database
+# -----> reset the credentials with your actual values 
 config = {
     "host": "localhost",
     "port": 3306,
-    "user": "root",
-    "password": "Sathvi782@me",
-    "database": "WaterQualityMonitoringSystem"  # Add database name after creation
+    "user": "root", # -----> name of the user 
+    "password": "Your_password_here", # -----> password for the database 
+    "database": "WaterQualityMonitoringSystem"  # Add database name after creation # -----> name of the database 
 }
 
 def connect_to_database():
