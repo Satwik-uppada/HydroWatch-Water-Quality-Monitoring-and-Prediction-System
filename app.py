@@ -6,6 +6,7 @@ import warnings
 warnings.filterwarnings('ignore')
 st.set_page_config(page_title='HydroWatch',layout='wide', page_icon='🌊')
 
+#Custom CSS
 sidebar_custom_css = """
                         <style>
                             .st-emotion-cache-5drf04 {
