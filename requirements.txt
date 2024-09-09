@@ -3,3 +3,7 @@ streamlit_lottie
 streamlit
 mysql.connector
 pandas
+matplotlib
+numpy
+seaborn
+pygwalker
