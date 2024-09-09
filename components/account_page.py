@@ -41,7 +41,7 @@ def app():
                 payload["displayName"] = username 
             payload = json.dumps(payload)
             # -----> make sure you insert your firebase passkey here 
-            r = requests.post(rest_api_url, params={"key": "Your pass key here"}, data=payload)
+            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
             try:
                 return r.json()['email']
             except:
@@ -71,7 +71,7 @@ def app():
            
             payload = json.dumps(payload)
             # -----> make sure you insert your firebase passkey here 
-            r = requests.post(rest_api_url, params={"key": "Your passkey here"}, data=payload)
+            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
             
             data = r.json()
             user_info = {
