@@ -1,11 +1,5 @@
 firebase_admin
-json
 streamlit_lottie
-requests
 streamlit
-warnings
 mysql.connector
-datetime
 pandas
-pickle
-time
