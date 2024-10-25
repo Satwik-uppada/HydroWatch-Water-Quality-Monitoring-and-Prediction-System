@@ -15,7 +15,7 @@ def lottie_files(filepath: str):
         return json.load(f)
 
 login_lottie_file = lottie_files("lottiefiles/login.json")
-fb_credentials = json.loads(os.getenv("pass_key"))
+fb_credentials = json.loads(os.getenv("PASS_KEY"))
 
 if not firebase_admin._apps:
     cred = credentials.Certificate(fb_credentials)
