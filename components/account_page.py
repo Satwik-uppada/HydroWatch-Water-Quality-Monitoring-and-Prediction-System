@@ -5,6 +5,7 @@ from firebase_admin import credentials
 from firebase_admin import auth
 import requests
 import json
+import os
 import components.database_creation as database_creation
 from streamlit_lottie import st_lottie
 
@@ -14,7 +15,7 @@ def lottie_files(filepath: str):
         return json.load(f)
 
 login_lottie_file = lottie_files("lottiefiles/login.json")
-fb_credentials = st.secrets["firebase"]['pass_key']
+fb_credentials = json.loads(os.getenv("pass_key"))
 
 if not firebase_admin._apps:
     cred = credentials.Certificate(fb_credentials)
