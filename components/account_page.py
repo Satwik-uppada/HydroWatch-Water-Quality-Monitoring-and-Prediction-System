@@ -94,7 +94,7 @@ def app():
             }
             payload = json.dumps(payload)
             # -----> make sure you insert your firebase passkey here 
-            r = requests.post(rest_api_url, params={"key": "your pass key here"}, data=payload)
+            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
             if r.status_code == 200:
                 return True, "Reset email Sent"
             else:
