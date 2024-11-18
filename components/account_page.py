@@ -5,6 +5,7 @@ from firebase_admin import credentials
 from firebase_admin import auth
 import requests
 import json
+import os
 import components.database_creation as database_creation
 from streamlit_lottie import st_lottie
 
@@ -14,6 +15,7 @@ def lottie_files(filepath: str):
         return json.load(f)
 
 login_lottie_file = lottie_files("lottiefiles/login.json")
+
 fb_credentials = st.secrets["firebase"]['pass_key']
 
 if not firebase_admin._apps:
@@ -92,7 +94,7 @@ def app():
             }
             payload = json.dumps(payload)
             # -----> make sure you insert your firebase passkey here 
-            r = requests.post(rest_api_url, params={"key": "your pass key here"}, data=payload)
+            r = requests.post(rest_api_url, params={"key": "AIzaSyAPKhhz8TSHOPW9mXl7JEm_Cnj3Ms9X-T8"}, data=payload)
             if r.status_code == 200:
                 return True, "Reset email Sent"
             else:

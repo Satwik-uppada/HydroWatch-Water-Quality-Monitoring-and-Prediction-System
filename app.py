@@ -107,12 +107,14 @@ sidebar_custom_css = """
 st.markdown(sidebar_custom_css,unsafe_allow_html=True)
 
 logo = "HydroWatch.png"
-st.logo(logo,icon_image=logo)
+st.logo(logo, icon_image=logo)
 st.sidebar.write("<p style='color:white; font-size:25px; text-align: center'><b>Water Quality Monitoring and prediction System</b></p>", unsafe_allow_html=True)
 st.sidebar.image(logo)
-homepage = st.Page('components/home_page.py',title='Home',icon=':material/home:')
-database = st.Page('components/database_page.py',title='Explore Database',icon=":material/database:")
-model = st.Page('components/model_page.py',title='Prediction Model',icon=':material/model_training:')
-account = st.Page('components/account_page.py',title='Account',icon=':material/account_circle:')
+
+homepage = st.Page('components/home_page.py', title='Home', icon=':material/home:')
+database = st.Page('components/database_page.py', title='Explore Database', icon=":material/database:")
+model = st.Page('components/model_page.py', title='Prediction Model' ,icon=':material/model_training:')
+account = st.Page('components/account_page.py', title='Account', icon=':material/account_circle:')
+
 pg = st.navigation([homepage,database,model,account])
 pg.run()
