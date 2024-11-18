@@ -107,7 +107,7 @@ sidebar_custom_css = """
 st.markdown(sidebar_custom_css,unsafe_allow_html=True)
 
 logo = "HydroWatch.png"
-st.logo(logo,icon_image=logo)
+st.logo(logo, icon_image=logo)
 st.sidebar.write("<p style='color:white; font-size:25px; text-align: center'><b>Water Quality Monitoring and prediction System</b></p>", unsafe_allow_html=True)
 st.sidebar.image(logo)
 
