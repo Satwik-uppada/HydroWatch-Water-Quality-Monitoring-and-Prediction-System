@@ -2,23 +2,28 @@ import mysql.connector
 import streamlit as st
 import pandas as pd
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
+load_dotenv()  # Load environment variables from a .env file
 
-
-    
-# Function to connect to MySQL database
-# -----> reset the credentials with your actual values 
 config = {
-    "host": "localhost",
-    "port": 3306,
-    "user": "root", # -----> name of the user 
-    "password": "Your_password_here", # -----> password for the database 
-    "database": "WaterQualityMonitoringSystem"  # Add database name after creation # -----> name of the database 
+    "host": os.getenv("DB_HOST"),
+    "port": int(os.getenv("DB_PORT")),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_NAME")
 }
 
 def connect_to_database():
-    db = mysql.connector.connect(**config)
-    return db
+    try:
+        db = mysql.connector.connect(**config)
+        return db
+    except mysql.connector.Error as err:
+        st.error(f"Error: {err}")
+        return None
+
+
 
 def create_database():
     db = mysql.connector.connect(
@@ -34,39 +39,39 @@ def create_database():
 
 def create_user_table(current_username):
     db = connect_to_database()
-    cursor = db.cursor()
-    cursor.execute("USE WaterQualityMonitoringSystem")
-    create_user_table_query = f"""
-    CREATE TABLE IF NOT EXISTS {current_username}_data (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        timestamp DATETIME,
-        aluminium FLOAT,
-        ammonia FLOAT,
-        arsenic FLOAT,
-        barium FLOAT,
-        cadmium FLOAT,
-        chloramine FLOAT,
-        chromium FLOAT,
-        copper FLOAT,
-        flouride FLOAT,
-        bacteria FLOAT,
-        viruses FLOAT,
-        `lead` FLOAT,
-        nitrates FLOAT,
-        nitrites FLOAT,
-        mercury FLOAT,
-        perchlorate FLOAT,
-        radium FLOAT,
-        selenium FLOAT,
-        silver FLOAT,
-        uranium FLOAT,
-        is_safe INT
-    )
-    """
-    cursor.execute(create_user_table_query)
-    db.commit()
-    cursor.close()
-    db.close()
+    if db:
+        with db.cursor() as cursor:
+            cursor.execute("USE WaterQualityMonitoringSystem")
+            create_user_table_query = f"""
+            CREATE TABLE IF NOT EXISTS `{current_username}_data` (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                timestamp DATETIME,
+                aluminium FLOAT,
+                ammonia FLOAT,
+                arsenic FLOAT,
+                barium FLOAT,
+                cadmium FLOAT,
+                chloramine FLOAT,
+                chromium FLOAT,
+                copper FLOAT,
+                flouride FLOAT,
+                bacteria FLOAT,
+                viruses FLOAT,
+                `lead` FLOAT,
+                nitrates FLOAT,
+                nitrites FLOAT,
+                mercury FLOAT,
+                perchlorate FLOAT,
+                radium FLOAT,
+                selenium FLOAT,
+                silver FLOAT,
+                uranium FLOAT,
+                is_safe INT
+            )
+            """
+            cursor.execute(create_user_table_query)
+            db.commit()
+
     # st.write(f'{current_username}_data table was created')
 
 def insert_user_inputs(current_username, aluminium, ammonia, arsenic, barium, cadmium, chloramine, chromium, copper, flouride, bacteria, viruses, lead, nitrates, nitrites, mercury, perchlorate, radium, selenium, silver, uranium, is_safe):
