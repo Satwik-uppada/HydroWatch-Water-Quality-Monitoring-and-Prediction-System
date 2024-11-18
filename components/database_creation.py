@@ -3,9 +3,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
-from dotenv import load_dotenv
-
-load_dotenv()  # Load environment variables from a .env file
 
 config = {
     "host": os.getenv("DB_HOST"),
