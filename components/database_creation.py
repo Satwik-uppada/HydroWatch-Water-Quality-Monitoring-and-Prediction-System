@@ -12,7 +12,7 @@ config = {
     "host": "localhost",
     "port": 3306,
     "user": "root", # -----> name of the user 
-    "password": "Your_password_here", # -----> password for the database 
+    "password": "Sathvi782@me", # -----> password for the database 
     "database": "WaterQualityMonitoringSystem"  # Add database name after creation # -----> name of the database 
 }
 
