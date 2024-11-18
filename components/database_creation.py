@@ -4,8 +4,6 @@ import pandas as pd
 from datetime import datetime
 
 
-
-    
 # Function to connect to MySQL database
 # -----> reset the credentials with your actual values 
 config = {
